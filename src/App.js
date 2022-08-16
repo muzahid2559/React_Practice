@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import './App.css';
-import Person  from './components/Person';
+import Book  from './components/book';
 
 class App extends Component {
+
   render() {
-    let obj = new Component();
     return (
           <div className="App">
-            <h1>Hello World!</h1>
-            < Person name = "Rahim" age ="30">I am some info of person</Person>
-            < Person name = "Karim" age ="20"/>
-            < Person name = "Jamal" age ="60"/>
-            < Person name = "Sajim" age ="25"/>
+            <h1>Book List</h1>
+            <Book BookName = "1984" Writer = "George Orwell"/>
+            <Book BookName = "The Da Vinci Code" Writer = "Dan Brown"/>
+            <Book BookName = "The Alchemist" Writer = "Paulo Coelho"/>
+
           </div>
         );
   }
