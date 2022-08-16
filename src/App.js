@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 
-//JSX code
+//JSX Formet
 function App() {
   return (
     <div className="App">
@@ -10,6 +10,10 @@ function App() {
       < Person />
     </div>
   );
+
+
+  // React Library formet
+  //return React.createElement('div', {className : "App"} , React.createElement('h1',null,'Hello World!'),<Person/>);
 }
 
 
@@ -20,6 +24,9 @@ function Person() {
   </div>
 
   );
+
+  // React Library formet
+  // return React.createElement('div' ,null , React.createElement('h1',null ,"I am person component"))
 }
 
 
