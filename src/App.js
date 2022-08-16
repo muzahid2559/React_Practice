@@ -4,6 +4,7 @@ import Person  from './components/Person';
 
 class App extends Component {
   render() {
+    let obj = new Component();
     return (
           <div className="App">
             <h1>Hello World!</h1>
