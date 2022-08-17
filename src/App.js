@@ -13,10 +13,10 @@ state = {
   otherProps : "I am some other prop"
 }
 
-changeBookState = () =>{
+changeBookState = newBookName =>{
   this.setState({
     books : [
-      { BookName : "Nineteen Eighty-Four", writer : "George Orwell" },
+      { BookName : newBookName, writer : "George Orwell" },
       { BookName : "The Da Vinci Code", writer : "Dan Brown"},
       { BookName : "Metmorphosis", writer : "Franz Kafka"}
     ]
@@ -28,11 +28,11 @@ changeBookState = () =>{
     return (
           <div className="App">
             <h1>Book List</h1>
-            <button onClick={this.changeBookState}>Change State</button>
+            <button onClick={() => this.changeBookState("Nineteen Eighty-Four")}>Change State</button>
 
             <Book BookName = {this.state.books[0].BookName} Writer = {this.state.books[0].writer}/>
             <Book BookName = {this.state.books[1].BookName} Writer = {this.state.books[1].writer}/>
-            <Book BookName = {this.state.books[2].BookName} Writer = {this.state.books[2].writer}/>
+            <Book BookName = {this.state.books[2].BookName} Writer = {this.state.books[2].writer} change = {this.changeBookState.bind(this,"Nineteen 84")}/>
 
           </div>
         );
