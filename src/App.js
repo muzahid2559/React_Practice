@@ -13,17 +13,6 @@ state = {
   otherProps : "I am some other prop"
 }
 
-changeBookState = newBookName =>{
-  this.setState({
-    books : [
-      { BookName : newBookName, writer : "George Orwell" },
-      { BookName : "The Vinci Code", writer : "Dan Brown"},
-      { BookName : "Metmorphosis", writer : "Franz Kafka"}
-    ]
-  });
-
-}
-
 changeWithInputState = e =>{
   this.setState({
     books : [
@@ -34,15 +23,27 @@ changeWithInputState = e =>{
   });
 }
 
+deleteBookState = index =>{
+  //const books = this.state.books.slice();
+  //const books = this.state.books.map(item => item)
+
+  const books = [...this.state.books];
+  books.splice(index, 1);
+  this.setState({
+    books : books
+  });
+
+};
   render() {
 
     //const booksState = this.state.books;
 
-    const books = this.state.books.map(book =>{
+    const books = this.state.books.map((book ,index)=>{
     return(
       <Book 
       bookName = {book.BookName}
       writer = {book.writer}
+      delete = {() => this.deleteBookState(index)}
       />
     );
     
@@ -52,8 +53,6 @@ changeWithInputState = e =>{
     return (
           <div className="App">
             <h1>Book List</h1>
-            <button onClick={() => this.changeBookState("Nineteen Eighty-Four")}>Change State</button>
-            <input type="text" onChange={this.changeWithInputState}></input> 
             {books}
 
           </div>
