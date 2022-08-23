@@ -35,15 +35,26 @@ changeWithInputState = e =>{
 }
 
   render() {
+
+    //const booksState = this.state.books;
+
+    const books = this.state.books.map(book =>{
+    return(
+      <Book 
+      bookName = {book.BookName}
+      writer = {book.writer}
+      />
+    );
+    
+    });
+
+
     return (
           <div className="App">
             <h1>Book List</h1>
             <button onClick={() => this.changeBookState("Nineteen Eighty-Four")}>Change State</button>
-            <input type="text" onChange={this.changeWithInputState}></input>
-
-            <Book BookName = {this.state.books[0].BookName} Writer = {this.state.books[0].writer} inputName = {this.changeWithInputState}/>
-            <Book BookName = {this.state.books[1].BookName} Writer = {this.state.books[1].writer}/>
-            <Book BookName = {this.state.books[2].BookName} Writer = {this.state.books[2].writer} change = {this.changeBookState.bind(this,"Nineteen 84")}/>
+            <input type="text" onChange={this.changeWithInputState}></input> 
+            {books}
 
           </div>
         );
