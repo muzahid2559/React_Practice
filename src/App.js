@@ -12,14 +12,18 @@ state = {
   ],
 }
 
-changeWithInputState = e =>{
-  this.setState({
-    books : [
-      { BookName : e.target.value, writer : "George Orwell" },
-      { BookName : "The Da Vinci Code", writer : "Dan Brown"},
-      { BookName : "Metmorphosis", writer : "Franz Kafka"}
-    ]
-  });
+changeWithInputState = (event, index) =>{
+const book = {
+  ...this.state.books[index]
+}
+
+book.BookName = event.target.value
+const books = [...this.state.books];
+books[index] = book;
+
+this.setState({
+books:books
+});
 }
 
 deleteBookState = index =>{
@@ -44,6 +48,8 @@ deleteBookState = index =>{
       writer = {book.writer}
       delete = {() => this.deleteBookState(index)}
       key={book.id}
+
+      inputName = {(event) =>this.changeWithInputState(event,index)}
       />
     );
     
