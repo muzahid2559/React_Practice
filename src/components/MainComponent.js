@@ -50,7 +50,11 @@ class MainComponent  extends Component{
           let books = null;
           if(this.state.showBooks){
       
-            books = <BookList books = {this.state.books}/>
+            books = <BookList 
+            books = {this.state.books} 
+            deleteBookState = {this.deleteBookState}
+            changeWithInputState = {this.changeWithInputState}
+            />
       
           }
       
