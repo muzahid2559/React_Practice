@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Book from './Book';
 import booklist from "../assets/booklist";
+import BookList from "./lists/BookList";
+
 
 
 class MainComponent  extends Component{
@@ -49,18 +50,7 @@ class MainComponent  extends Component{
           let books = null;
           if(this.state.showBooks){
       
-            books = this.state.books.map((book ,index)=>{
-              return(
-                <Book 
-                bookName = {book.BookName}
-                writer = {book.writer}
-                delete = {() => this.deleteBookState(index)}
-                key={book.id}
-          
-                inputName = {(event) =>this.changeWithInputState(event,index)}
-                />
-              );
-              });
+            books = <BookList books = {this.state.books}/>
       
           }
       
