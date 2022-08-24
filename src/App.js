@@ -6,11 +6,10 @@ class App extends Component {
 
 state = {
   books : [
-    { BookName : "1984", writer : "George Orwell" },
-    { BookName : "The Da Vinci Code", writer : "Dan Brown"},
-    { BookName : "The Alchemist", writer : "Paulo Coelho"}
+    { id:1, BookName : "1984", writer : "George Orwell" },
+    { id:2, BookName : "The Da Vinci Code", writer : "Dan Brown"},
+    { id:3, BookName : "The Alchemist", writer : "Paulo Coelho"}
   ],
-  otherProps : "I am some other prop"
 }
 
 changeWithInputState = e =>{
@@ -44,6 +43,7 @@ deleteBookState = index =>{
       bookName = {book.BookName}
       writer = {book.writer}
       delete = {() => this.deleteBookState(index)}
+      key={book.id}
       />
     );
     
