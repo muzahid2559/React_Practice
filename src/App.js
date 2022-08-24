@@ -10,6 +10,7 @@ state = {
     { id:2, BookName : "The Da Vinci Code", writer : "Dan Brown"},
     { id:3, BookName : "The Alchemist", writer : "Paulo Coelho"}
   ],
+  showBooks: true
 }
 
 changeWithInputState = (event, index) =>{
@@ -37,6 +38,15 @@ deleteBookState = index =>{
   });
 
 };
+
+toggleBooks =() =>{
+  this.setState({
+    showBooks:!this.state.showBooks
+  });
+
+}
+
+
   render() {
 
     //const booksState = this.state.books;
@@ -59,7 +69,8 @@ deleteBookState = index =>{
     return (
           <div className="App">
             <h1>Book List</h1>
-            {books}
+            <button onClick={this.toggleBooks}>Toggle Books</button>
+            { this.state.showBooks? books : null  }
 
           </div>
         );
