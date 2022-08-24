@@ -50,27 +50,33 @@ toggleBooks =() =>{
   render() {
 
     //const booksState = this.state.books;
+    let books = null;
+    if(this.state.showBooks){
 
-    const books = this.state.books.map((book ,index)=>{
-    return(
-      <Book 
-      bookName = {book.BookName}
-      writer = {book.writer}
-      delete = {() => this.deleteBookState(index)}
-      key={book.id}
-
-      inputName = {(event) =>this.changeWithInputState(event,index)}
-      />
-    );
+      books = this.state.books.map((book ,index)=>{
+        return(
+          <Book 
+          bookName = {book.BookName}
+          writer = {book.writer}
+          delete = {() => this.deleteBookState(index)}
+          key={book.id}
     
-    });
+          inputName = {(event) =>this.changeWithInputState(event,index)}
+          />
+        );
+        });
+
+    }
+
+
+
 
 
     return (
           <div className="App">
             <h1>Book List</h1>
             <button onClick={this.toggleBooks}>Toggle Books</button>
-            { this.state.showBooks? books : null  }
+            {books}
 
           </div>
         );
