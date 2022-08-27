@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import booklist from "../assets/booklist";
 import BookList from "./lists/BookList";
+import NewBook from "./representational/NewBook";
 
 
 
@@ -13,7 +14,6 @@ class MainComponent  extends Component{
       showBooks: true
 
     }
-    console.log("MainComponent constructor!");
   }
       
       changeWithInputState = (event, index) =>{
@@ -49,33 +49,8 @@ class MainComponent  extends Component{
       
       }
 
-      componentDidMount(){
-        console.log("MainComponent componentDidMount!")
-      }
-
-      shouldComponentUpdate(nextProps,nextState){
-        console.log("Update MainComponent shouldComponentUpdate", nextProps,nextState);
-        return true;
-      }
-
-      componentDidUpdate(){
-        console.log("Update MainComponent componentDidUpdate");
-      }
-
-      static getDrivedStateFromProps(nextProps,prevState){
-        console.log("MainComponent getDrivedStateFromProps",nextProps,prevState);
-        return prevState;
-      }
-
-      getSnapshotBeforeUpdate(){
-        console.log("Update MainComponent getSnapshotBeforeUpdate");
-      }
-
-
         render() {
 
-          console.log("MainComponent render");
-      
           //const booksState = this.state.books;
           let books = null;
           if(this.state.showBooks){
@@ -90,9 +65,19 @@ class MainComponent  extends Component{
       
           return (
                 <div className="App">
+                  <div className="nav-bar">
+
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/new">New Book</a></li>
+                  </ul>
+
+                  </div>
+
                   <h1>Book List</h1>
                   <button onClick={this.toggleBooks}>Toggle Books</button>
                   {books}
+                  <NewBook/>
       
                 </div>
               );

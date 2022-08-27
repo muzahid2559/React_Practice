@@ -7,32 +7,7 @@ class BookList extends Component{
     console.log("BookList constructor");
   }
 
-  componentDidMount(){
-    console.log("BookList  componentDidMount!")
-  }
-
-  shouldComponentUpdate(nextProps,nextState){
-    console.log("Update BookList shouldComponentUpdate", nextProps,nextState);
-    return true;
-  }
-
-  componentDidUpdate(){
-    console.log("Update BookList componentDidUpdate");
-  }
-
-  static getDrivedStateFromProps(nextProps,prevState){
-    console.log("BookList getDrivedStateFromProps",nextProps,prevState);
-    return prevState;
-  }
-
-  getSnapshotBeforeUpdate(){
-    console.log("Update BookList getSnapshotBeforeUpdate");
-  }
-
-
   render(){
-    console.log("BookList render");
-    
 
     return(
       this.props.books.map((book ,index)=>{
