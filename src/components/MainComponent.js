@@ -49,10 +49,6 @@ class MainComponent  extends Component{
       
       }
 
-      UNSAFE_componentWillMount(){
-        console.log("MainComponent componentWillMount!");
-      }
-
       componentDidMount(){
         console.log("MainComponent componentDidMount!")
       }
@@ -62,13 +58,17 @@ class MainComponent  extends Component{
         return true;
       }
 
-      UNSAFE_componentWillUpdate(nextProps,nextState){
-        console.log("Update MainComponent componentWillUpdate");
-    
-      }
-
       componentDidUpdate(){
         console.log("Update MainComponent componentDidUpdate");
+      }
+
+      static getDrivedStateFromProps(nextProps,prevState){
+        console.log("MainComponent getDrivedStateFromProps",nextProps,prevState);
+        return prevState;
+      }
+
+      getSnapshotBeforeUpdate(){
+        console.log("Update MainComponent getSnapshotBeforeUpdate");
       }
 
 

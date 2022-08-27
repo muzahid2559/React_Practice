@@ -7,16 +7,8 @@ class BookList extends Component{
     console.log("BookList constructor");
   }
 
-  UNSAFE_componentWillMount(){
-    console.log("BookList  componentWillMount!");
-  }
-
   componentDidMount(){
     console.log("BookList  componentDidMount!")
-  }
-
-  UNSAFE_componentWillReceiveProps(nextProps){
-    console.log("Update BookList componentWillReceiveProps", nextProps);
   }
 
   shouldComponentUpdate(nextProps,nextState){
@@ -24,13 +16,17 @@ class BookList extends Component{
     return true;
   }
 
-  UNSAFE_componentWillUpdate(nextProps,nextState){
-    console.log("Update BookList componentWillUpdate");
-
-  }
-
   componentDidUpdate(){
     console.log("Update BookList componentDidUpdate");
+  }
+
+  static getDrivedStateFromProps(nextProps,prevState){
+    console.log("BookList getDrivedStateFromProps",nextProps,prevState);
+    return prevState;
+  }
+
+  getSnapshotBeforeUpdate(){
+    console.log("Update BookList getSnapshotBeforeUpdate");
   }
 
 
