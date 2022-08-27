@@ -5,10 +5,16 @@ import BookList from "./lists/BookList";
 
 
 class MainComponent  extends Component{
-    state = {
-        books : booklist,
-        showBooks: true
-      }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      books : booklist,
+      showBooks: true
+
+    }
+    console.log("MainComponent constructor!");
+  }
       
       changeWithInputState = (event, index) =>{
       const book = {
@@ -42,9 +48,19 @@ class MainComponent  extends Component{
         });
       
       }
-      
-      
+
+      UNSAFE_componentWillMount(){
+        console.log("MainComponent componentWillMount!");
+      }
+
+      componentDidMount(){
+        console.log("MainComponent componentDidMount!")
+      }
+
+
         render() {
+
+          console.log("MainComponent render");
       
           //const booksState = this.state.books;
           let books = null;
@@ -57,10 +73,6 @@ class MainComponent  extends Component{
             />
       
           }
-      
-      
-      
-      
       
           return (
                 <div className="App">
