@@ -43,10 +43,8 @@ class MainComponent  extends Component{
                   <Routes>
                         <Route path="/" exact element={books} />
                         <Route path="/new-book" exact element={<NewBook/>} />
-                       
+                        <Route path="/:id" exact element={<BookDetails book={this.state.selectedBook}/>} />
                   </Routes> 
-
-                  <BookDetails book={this.state.selectedBook}/>
                 </div>
               );
         }

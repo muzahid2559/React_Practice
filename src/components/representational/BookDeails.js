@@ -7,6 +7,7 @@ const BookDetails = props =>{
         <div>
             <h1>{props.book.BookName}</h1>
             <h3>{props.book.writer}</h3>
+            <p>{props.book.description}</p>
 
         </div>
 
