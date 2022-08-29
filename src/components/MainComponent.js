@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import booklist from "../assets/booklist";
 import BookList from "./lists/BookList";
 import NewBook from "./representational/NewBook";
+import BookDetails from "./representational/BookDeails";
 import { Route , Routes ,NavLink} from 'react-router-dom';
 
 
@@ -9,46 +10,23 @@ import { Route , Routes ,NavLink} from 'react-router-dom';
 class MainComponent  extends Component{
   constructor(props){
     super(props);
-
     this.state = {
-      books : booklist
+      books : booklist,
+      selectedBook:null
     }
   }
-      
-      changeWithInputState = (event, index) =>{
-      const book = {
-        ...this.state.books[index]
-      }
-      
-      book.BookName = event.target.value
-      const books = [...this.state.books];
-      books[index] = book;
-      
-      this.setState({
-      books:books
-      });
-      }
-      
-      deleteBookState = index =>{
-        //const books = this.state.books.slice();
-        //const books = this.state.books.map(item => item)
-      
-        const books = [...this.state.books];
-        books.splice(index, 1);
-        this.setState({
-          books : books
-        });
-      
-      };
-      
 
-        render() {
+  selectedBookHandler = bookId =>{
+    const book = this.state.books.filter(book =>
+      book.id === bookId)[0];
+    this.setState({
+      selectedBook : book
+    })
+  }
+  
+       render() {
 
-          const books = <BookList 
-            books = {this.state.books} 
-            deleteBookState = {this.deleteBookState}
-            changeWithInputState = {this.changeWithInputState}
-            />
+          const books = <BookList books = {this.state.books}  selectedBookHandler = {this.selectedBookHandler}/>
       
           return (
                 <div className="App">
@@ -60,15 +38,15 @@ class MainComponent  extends Component{
                     </ul>
 
                   </nav>
-
+   
 
                   <Routes>
                         <Route path="/" exact element={books} />
                         <Route path="/new-book" exact element={<NewBook/>} />
-                  
+                       
                   </Routes> 
 
-      
+                  <BookDetails book={this.state.selectedBook}/>
                 </div>
               );
         }

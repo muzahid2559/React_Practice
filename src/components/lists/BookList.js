@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import Book from "../representational/Book";
 
 class BookList extends Component{
-  constructor(props){
-    super(props);
-    console.log("BookList constructor");
-  }
-
   render(){
 
     return(
@@ -15,10 +10,8 @@ class BookList extends Component{
             <Book 
             bookName = {book.BookName}
             writer = {book.writer}
-            delete = {() => this.props.deleteBookState(index)}
             key={book.id}
-      
-            inputName = {(event) =>this.props.changeWithInputState(event,index)}
+            selectedBookHandler = {()=>this.props.selectedBookHandler(book.id)}
             />
           );
         })
