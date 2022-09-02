@@ -3,7 +3,7 @@ import booklist from "../assets/booklist";
 import BookList from "./lists/BookList";
 import NewBook from "./representational/NewBook";
 import BookDetails from "./representational/BookDeails";
-import { Route , Routes ,NavLink} from 'react-router-dom';
+import { Route , Routes ,NavLink, Navigate} from 'react-router-dom';
 
 
 
@@ -41,9 +41,10 @@ class MainComponent  extends Component{
    
 
                   <Routes>
-                        <Route path="/" exact element={books} />
-                        <Route path="/new-book" exact element={<NewBook/>} />
-                        <Route path="/book/:id" exact element={<BookDetails book={this.state.selectedBook}/>} /> 
+                        <Route path="/"  element={<Navigate to ="/books"/>} />
+                        <Route path="/books"  element={books} />
+                        <Route path="/new-book"  element={<NewBook/>} />
+                        <Route path="/book/:id"  element={<BookDetails book={this.state.selectedBook}/>} /> 
                   </Routes> 
 
                 </div>
